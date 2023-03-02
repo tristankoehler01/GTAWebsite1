@@ -7,25 +7,8 @@ namespace GTAWebsite.Models.Manu
         public String GraderCourses { get; set; }
         public String LabCourses { get; set; }
 
-
-    }
-    public enum Position {  
-    Grader,
-    LabInstructor
-    }
-    public enum Qualification
-    {
-        BS,
-        MB,
-        PHD
-
-    }
-    public enum GraderCourses
-    {
-        CS20, CS21, CS22, CS23, CS24, CS25, CS26, CS27, CS28,   CS29, CS30, CS31, CS32, CS33
-    }
-    public enum LabCourses
-    {
-        BO2, BO3, BO4, BO5, BO6, BO7, BO8, BO9, BO10, BO11, BO12
+        public static List<String> positions = new List<String>() { "Grader", "Graduate Teaching Assistant", "Lab Instructor" };
+        public static List<String> qualifications = new List<String>() { "BS", "MB", "PhD" };
+        public static List<String> courses = new List<String>() { "CS101", "CS101L", "CS191", "CS201R", "CS201L", "CS291", "CS303", "CS320", "CS349", "CS394R", "CS404", "CS441", "CS449", "CS456", "CS457", "CS458", "CS461", "CS465R", "CS470", "CS5520", "CS5525", "CS5552A", "CS5565", "CS5573", "CS5590PA", "CS5592", "CS5596A", "CS5596B" };
     }
 }

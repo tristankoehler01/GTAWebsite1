@@ -7,7 +7,7 @@
     <div class="form-group">
         <label for="position">Position:</label>
         <select class="form-control" id="position" name="Position">
-            @foreach (var value in Enum.GetValues(typeof(Models.Manu.Position)))
+            @foreach (var value in Models.Manu.Manu.positions)
             {
                 <option value="@value">@value</option>
             }
@@ -16,8 +16,8 @@
     <div class="form-group">
         <label for="qualification">Qualification:</label>
         <select class="form-control" id="qualification" name="Qualification">
-            @foreach (var value in Enum.GetValues(typeof(Models.Manu.Qualification)))
-            { 
+            @foreach (var value in Models.Manu.Manu.qualifications)
+            {
                 <option value="@value">@value</option>
             }
         </select>
@@ -25,16 +25,7 @@
     <div class="form-group">
         <label for="graderCourses">Grader Courses:</label>
         <select class="form-control" id="graderCourses" name="GraderCourses">
-            @foreach (var value in Enum.GetValues(typeof(Models.Manu.GraderCourses)))
-            {
-                <option value="@value">@value</option>
-            }
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="labCourses">Lab Courses:</label>
-        <select class="form-control" id="labCourses" name="LabCourses">
-            @foreach (var value in Enum.GetValues(typeof(Models.Manu.LabCourses)))
+            @foreach (var value in Models.Manu.Manu.courses)
             {
                 <option value="@value">@value</option>
             }

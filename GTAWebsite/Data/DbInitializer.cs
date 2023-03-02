@@ -12,7 +12,7 @@ namespace GTAWebsite.Data
                 return;
             }
 
-            var courses = new Course[]
+            var courses = new List<Course>
             {
                 new Course{courseName = "CS101", courseDescription = "Test.", positionName = "Graduate Teaching Assistant"},
                 new Course{courseName = "CS303", courseDescription = "Test.", positionName = "Grader"}

@@ -23,7 +23,7 @@
     <div class="form-group">
         <label for="position">Position:</label>
         <select class="form-control" id="position" name="Position">
-            @foreach (var value in Enum.GetValues(typeof(Models.Manu.Position)))
+            @foreach (var value in Models.Manu.Manu.positions)
             {
                 <option value="@value">@value</option>
             }
@@ -32,7 +32,7 @@
     <div class="form-group">
         <label for="qualification">Qualification:</label>
         <select class="form-control" id="qualification" name="Qualification">
-            @foreach (var value in Enum.GetValues(typeof(Models.Manu.Qualification)))
+            @foreach (var value in Models.Manu.Manu.qualifications)
             {
                 <option value="@value">@value</option>
             }
@@ -41,31 +41,31 @@
     <div class="form-group">
         <label for="graderCourses">Grader Courses:</label>
         <select class="form-control" id="graderCourses" name="GraderCourses">
-            @foreach (var value in Enum.GetValues(typeof(Models.Manu.GraderCourses)))
+            @foreach (var value in Models.Manu.Manu.courses)
             {
                 <option value="@value">@value</option>
             }
         </select>
     </div>
-    <div class="form-group">
-        <label for="labCourses">Lab Courses:</label>
-        <select class="form-control" id="labCourses" name="LabCourses">
-            @foreach (var value in Enum.GetValues(typeof(Models.Manu.LabCourses)))
-            {
-                <option value="@value">@value</option>
-            }
-        </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
+<button id="filter-button" type="button" class="btn btn-primary">Submit</button>
 
-<div class="text-center">
-    @for (int i = 0; i < Model.Course.Count; i++)
-    {
-        <div class="group-block" style="float:left; color:white"]>
-            <div>@Html.DisplayFor(modelItem => Model.Course[i].courseName)</div>
-            <button type = "submit" class="btn btn-primary" style="align-items:center">More</button>
-        </div>
+<script>
+    var submitButton = document.getElementById("filter-button");
+    let buttonClicked = true;
+    submitButton.addEventListener("click", handleClick);
+    function handleClick {
+        if (buttonClicked) {
+            var courses = JSON.parse("@Html.Raw(Json.Serialize(IndexModel.Course))");
+            for (let i = 0; i < courses.length; i++) {
+                <div class="group-block" style="float:left; color:white">
+                    <div>courses[i].courseName</div>
+                    <button type = "button" class="btn btn-primary" style="align-items:center">More</button>
+                </div>
+            }
+
+ 
+        }
     }
-</div>
+</script>
