@@ -18,7 +18,7 @@ namespace GTAWebsite.Pages
             _context = context;
         }
 
-        public static IList<Course> Course { get; set; } = default!;
+        public static List<Course> Course { get; set; } = default!;
 
         public async Task OnGetAsync()
         {

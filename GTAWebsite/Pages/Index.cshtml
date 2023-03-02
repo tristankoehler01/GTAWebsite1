@@ -10,6 +10,7 @@
         display:flex;
         background-color:#005293;
         margin:10px;
+        padding:5px;
         align-items:center;
         justify-content:center;
         text-align:center;
@@ -47,25 +48,26 @@
             }
         </select>
     </div>
+
+    <br>
+    <button id="filter-button" type="button" class="btn btn-primary" onclick="handleClick()">Submit</button>
+    <br>
 </form>
 
-<button id="filter-button" type="button" class="btn btn-primary">Submit</button>
+@{
+    List<Models.Course> courses = IndexModel.Course;
+    List<Models.Course> shownCourses = new List<Models.Course>();
 
-<script>
-    var submitButton = document.getElementById("filter-button");
-    let buttonClicked = true;
-    submitButton.addEventListener("click", handleClick);
-    function handleClick {
-        if (buttonClicked) {
-            var courses = JSON.parse("@Html.Raw(Json.Serialize(IndexModel.Course))");
-            for (let i = 0; i < courses.length; i++) {
-                <div class="group-block" style="float:left; color:white">
-                    <div>courses[i].courseName</div>
-                    <button type = "button" class="btn btn-primary" style="align-items:center">More</button>
-                </div>
-            }
-
- 
-        }
+    foreach (Models.Course c in courses)
+    {
+        shownCourses.Add(c);
     }
-</script>
+}
+
+@for (int i = 0; i < courses.Count; i++) {
+     <div class="group-block" style="float:left; color:white">
+     <div>@Html.DisplayFor(model => shownCourses.ElementAt(i).courseName)</div>
+     <div>@Html.DisplayFor(model => shownCourses.ElementAt(i).positionName)</div>
+     <button type = "submit" class="btn btn-primary" style="align-items:center">More</button>
+     </div>
+}
