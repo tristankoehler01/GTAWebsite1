@@ -5,10 +5,69 @@
     ViewData["Title"] = "UMKC: Apply for Graduate Teaching";
 }
 
-<div class="text-center">
-    @foreach (var item in Model.Course)
-    {
-        <div style="align-content:center; width:250px; height:100px; border:solid; border-width:5px; text-align:center; background-color:#005293; border-color:#FECB00; color:white">@Html.DisplayFor(modelItem => item.courseName)</div>
-        <br>
+<style>
+    .group-block {
+        display:flex;
+        background-color:#005293;
+        margin:10px;
+        padding:5px;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        width:200px;
+        height:200px;
+        flex-direction:column
     }
-</div>
+</style>
+
+<form method="post">
+    <div class="form-group">
+        <label for="position">Position:</label>
+        <select class="form-control" id="position" name="Position">
+            @foreach (var value in Models.Manu.Manu.positions)
+            {
+                <option value="@value">@value</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="qualification">Qualification:</label>
+        <select class="form-control" id="qualification" name="Qualification">
+            @foreach (var value in Models.Manu.Manu.qualifications)
+            {
+                <option value="@value">@value</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="graderCourses">Grader Courses:</label>
+        <select class="form-control" id="graderCourses" name="GraderCourses">
+            @foreach (var value in Models.Manu.Manu.courses)
+            {
+                <option value="@value">@value</option>
+            }
+        </select>
+    </div>
+
+    <br>
+    <button id="filter-button" type="button" class="btn btn-primary" onclick="handleClick()">Submit</button>
+    <br>
+</form>
+
+@{
+    List<Models.Course> courses = IndexModel.Course;
+    List<Models.Course> shownCourses = new List<Models.Course>();
+
+    foreach (Models.Course c in courses)
+    {
+        shownCourses.Add(c);
+    }
+}
+
+@for (int i = 0; i < courses.Count; i++) {
+     <div class="group-block" style="float:left; color:white">
+     <div>@Html.DisplayFor(model => shownCourses.ElementAt(i).courseName)</div>
+     <div>@Html.DisplayFor(model => shownCourses.ElementAt(i).positionName)</div>
+     <button type = "submit" class="btn btn-primary" style="align-items:center">More</button>
+     </div>
+}

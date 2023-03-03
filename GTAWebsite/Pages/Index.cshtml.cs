@@ -10,7 +10,7 @@ namespace GTAWebsite.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        private readonly GTAWebsite.Data.GTAWebsiteContext _context;
+        public GTAWebsite.Data.GTAWebsiteContext _context;
 
         public IndexModel(ILogger<IndexModel> logger, GTAWebsite.Data.GTAWebsiteContext context)
         {
@@ -18,7 +18,7 @@ namespace GTAWebsite.Pages
             _context = context;
         }
 
-        public IList<Course> Course { get; set; } = default!;
+        public static List<Course> Course { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
