@@ -20,6 +20,13 @@
     }
 </style>
 
+@{
+    String positionValue = "Any";
+    String qualificationValue = "Any";
+    String courseValue = "Any";
+}
+
+
 <form method="post">
     <div class="form-group">
         <label for="position">Position:</label>
@@ -28,6 +35,7 @@
             {
                 <option value="@value">@value</option>
             }
+
         </select>
     </div>
     <div class="form-group">
@@ -54,12 +62,15 @@
     <br>
 </form>
 
+
 @{
     List<Models.Course> courses = IndexModel.Course;
     List<Models.Course> shownCourses = new List<Models.Course>();
 
     foreach (Models.Course c in courses)
     {
+        <div>@positionValue</div>
+
         shownCourses.Add(c);
     }
 }
