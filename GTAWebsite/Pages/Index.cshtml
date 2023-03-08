@@ -1,5 +1,4 @@
-﻿
-@page
+﻿@page
 @model IndexModel
 @{
     ViewData["Title"] = "UMKC: Apply for Graduate Teaching";
@@ -21,64 +20,47 @@
 </style>
 
 @{
-    String positionValue = "Any";
-    String qualificationValue = "Any";
-    String courseValue = "Any";
+    SelectList posItems = new SelectList(Models.Menu.positions, "Any");
+    <div>Position</div>
+    <div>@Html.DropDownList("position", posItems)</div>
+    <br>
+    SelectList qualItems = new SelectList(Models.Menu.qualifications,"Any");
+    <div>Qualification</div>
+    <div>@Html.DropDownList("qualifications", qualItems)</div>
+    <br>
+    SelectList courseItems = new SelectList(Models.Menu.courses);
+    <div>Course</div>
+    <div>@Html.DropDownList("courses", courseItems)</div>
+    <br>
+
+
 }
 
-
-<form method="post">
-    <div class="form-group">
-        <label for="position">Position:</label>
-        <select class="form-control" id="position" name="Position">
-            @foreach (var value in Models.Manu.Manu.positions)
-            {
-                <option value="@value">@value</option>
-            }
-
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="qualification">Qualification:</label>
-        <select class="form-control" id="qualification" name="Qualification">
-            @foreach (var value in Models.Manu.Manu.qualifications)
-            {
-                <option value="@value">@value</option>
-            }
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="graderCourses">Grader Courses:</label>
-        <select class="form-control" id="graderCourses" name="GraderCourses">
-            @foreach (var value in Models.Manu.Manu.courses)
-            {
-                <option value="@value">@value</option>
-            }
-        </select>
-    </div>
-
-    <br>
-    <button id="filter-button" type="button" class="btn btn-primary" onclick="handleClick()">Submit</button>
-    <br>
-</form>
-
-
 @{
-    List<Models.Course> courses = IndexModel.Course;
-    List<Models.Course> shownCourses = new List<Models.Course>();
-
-    foreach (Models.Course c in courses)
+    List<GTAWebsite.Models.Course> coursesShown = new List<GTAWebsite.Models.Course>();
+    foreach (GTAWebsite.Models.Course c in GTAWebsite.Pages.IndexModel.Course)
     {
-        <div>@positionValue</div>
+        bool hasPos = false;
+        bool hasQual = false;
+        bool hasCourse = false;
+        if (c.courseName == courseItems.SelectedValue || courseItems.SelectedValue == "Any")
+        {
+            hasCourse = true;
+        }
 
-        shownCourses.Add(c);
+        if (hasCourse)
+        {
+            coursesShown.Add(c);
+        }
     }
 }
 
-@for (int i = 0; i < courses.Count; i++) {
-     <div class="group-block" style="float:left; color:white">
-     <div>@Html.DisplayFor(model => shownCourses.ElementAt(i).courseName)</div>
-     <div>@Html.DisplayFor(model => shownCourses.ElementAt(i).positionName)</div>
-     <button type = "submit" class="btn btn-primary" style="align-items:center">More</button>
-     </div>
+@foreach (GTAWebsite.Models.Course c in coursesShown)
+{
+    <div class="group-block" style="float:left; color:white">
+        <div>@Html.DisplayFor(model => c.courseName)</div>
+        <div>@Html.DisplayFor(model => c.positionName)</div>
+        <button type="submit" class="btn btn-primary" style="align-items:center">More</button>
+    </div>
 }
+
