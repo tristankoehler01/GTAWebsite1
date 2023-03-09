@@ -8,6 +8,8 @@
     .group-block {
         display:flex;
         background-color:#005293;
+        float:left;
+        color: white;
         margin:10px;
         padding:5px;
         align-items:center;
@@ -17,47 +19,59 @@
         height:200px;
         flex-direction:column
     }
+
+    .area {
+        display:flex;
+    }
 </style>
 
 @{
-    SelectList posItems = new SelectList(Models.Menu.positions, "Any");
+    SelectList posItems = new SelectList(Models.Menu.positions, Models.Menu.positions.ElementAt(0));
     <div>Position</div>
     <div>@Html.DropDownList("position", posItems)</div>
     <br>
-    SelectList qualItems = new SelectList(Models.Menu.qualifications,"Any");
+    SelectList qualItems = new SelectList(Models.Menu.qualifications, Models.Menu.qualifications.ElementAt(0));
     <div>Qualification</div>
     <div>@Html.DropDownList("qualifications", qualItems)</div>
     <br>
-    SelectList courseItems = new SelectList(Models.Menu.courses);
+    SelectList courseItems = new SelectList(Models.Menu.courses, Models.Menu.courses.ElementAt(0));
     <div>Course</div>
     <div>@Html.DropDownList("courses", courseItems)</div>
     <br>
-    <button type="submit" class="btn btn-primary" onclick="">Submit</button>
+    <button type="button" class="btn btn-primary" onclick="displayGroups()">Submit</button>
     <br>
+    <div class="area" id="area"></div>
 
-}
-
-@{
-    List<GTAWebsite.Models.Course> coursesShown = new List<GTAWebsite.Models.Course>();
-    foreach (GTAWebsite.Models.Course c in coursesShown)
-    {
-        bool hasPos = false;
-        bool hasQual = false;
-        bool hasCourse = false;
-        if (c.courseName == (String)courseItems.SelectedValue || (String)courseItems.SelectedValue == "Any")
-        {
-            hasCourse = true;
-        }
-
-        if (hasCourse)
-        {
-            coursesShown.Add(c);
-        }
-    }
 }
 
 <script>
-    var jsonString = @Json.Serialize(coursesShown);
-    console.log(jsonString);
-</script>
+    function displayGroups() {
+        document.getElementById("area").innerHTML = "";
+        var coursesShown = []
+        var selectableCourses = @Json.Serialize(GTAWebsite.Pages.IndexModel.Course);
+        for (i in selectableCourses) {
+            let hasCourse = false;
+            if (selectableCourses[i].courseName == document.getElementById("courses").value || document.getElementById("courses").value == "Any") {
+                hasCourse = true;
+            }
 
+            if (hasCourse) {
+                coursesShown.push(selectableCourses[i]);
+                console.log("success");
+            }
+        }
+
+
+        let text = "";
+        if (coursesShown.length == 0) {
+            text = "No results found";
+        }
+        else {
+            for (let i in coursesShown) {
+            text += "<div class='group-block'>" + coursesShown[i].courseName + "<button type='submit' class='btn btn-primary'>More</button></div>";
+            }
+        }
+
+        document.getElementById("area").innerHTML = text;
+    }
+</script>

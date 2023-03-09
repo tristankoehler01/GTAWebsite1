@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using GTAWebsite.Data;
 using GTAWebsite.Models;
 
-namespace GTAWebsite.Pages.Courses
+namespace GTAWebsite.Pages.AddCourse
 {
     public class CreateModel : PageModel
     {

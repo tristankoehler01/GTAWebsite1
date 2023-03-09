@@ -1,5 +1,5 @@
 ﻿@page
-@model GTAWebsite.Pages.Courses.DetailsModel
+@model GTAWebsite.Pages.AddCourse.DetailsModel
 
 @{
     ViewData["Title"] = "Details";
@@ -28,6 +28,12 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Course.positionName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.qualificationName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.qualificationName)
         </dd>
     </dl>
 </div>

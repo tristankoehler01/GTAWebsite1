@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using GTAWebsite.Data;
 using GTAWebsite.Models;
 
-namespace GTAWebsite.Pages.Courses
+namespace GTAWebsite.Pages.AddCourse
 {
     public class EditModel : PageModel
     {
