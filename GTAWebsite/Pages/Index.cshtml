@@ -32,18 +32,19 @@
     <div>Course</div>
     <div>@Html.DropDownList("courses", courseItems)</div>
     <br>
-
+    <button type="submit" class="btn btn-primary" onclick="">Submit</button>
+    <br>
 
 }
 
 @{
     List<GTAWebsite.Models.Course> coursesShown = new List<GTAWebsite.Models.Course>();
-    foreach (GTAWebsite.Models.Course c in GTAWebsite.Pages.IndexModel.Course)
+    foreach (GTAWebsite.Models.Course c in coursesShown)
     {
         bool hasPos = false;
         bool hasQual = false;
         bool hasCourse = false;
-        if (c.courseName == courseItems.SelectedValue || courseItems.SelectedValue == "Any")
+        if (c.courseName == (String)courseItems.SelectedValue || (String)courseItems.SelectedValue == "Any")
         {
             hasCourse = true;
         }
@@ -55,12 +56,8 @@
     }
 }
 
-@foreach (GTAWebsite.Models.Course c in coursesShown)
-{
-    <div class="group-block" style="float:left; color:white">
-        <div>@Html.DisplayFor(model => c.courseName)</div>
-        <div>@Html.DisplayFor(model => c.positionName)</div>
-        <button type="submit" class="btn btn-primary" style="align-items:center">More</button>
-    </div>
-}
+<script>
+    var jsonString = @Json.Serialize(coursesShown);
+    console.log(jsonString);
+</script>
 
