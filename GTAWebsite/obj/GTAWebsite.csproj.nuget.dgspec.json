@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\armin\\Documents\\GTA\\GTAWebsite\\GTAWebsite\\GTAWebsite.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\armin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "D:\\armin ravini\\Documents\\GTAWebsite2\\GTAWebsite1\\GTAWebsite\\GTAWebsite.csproj": {}
+  },
+  "projects": {
+    "D:\\armin ravini\\Documents\\GTAWebsite2\\GTAWebsite1\\GTAWebsite\\GTAWebsite.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\armin ravini\\Documents\\GTAWebsite2\\GTAWebsite1\\GTAWebsite\\GTAWebsite.csproj",
+        "projectName": "GTAWebsite",
+        "projectPath": "D:\\armin ravini\\Documents\\GTAWebsite2\\GTAWebsite1\\GTAWebsite\\GTAWebsite.csproj",
+        "packagesPath": "C:\\Users\\armin ravini\\.nuget\\packages\\",
+        "outputPath": "D:\\armin ravini\\Documents\\GTAWebsite2\\GTAWebsite1\\GTAWebsite\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\armin ravini\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> parent of cff7120 (Login Page and Database)
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -78,7 +95,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+>>>>>>> parent of cff7120 (Login Page and Database)
         }
       }
     }
