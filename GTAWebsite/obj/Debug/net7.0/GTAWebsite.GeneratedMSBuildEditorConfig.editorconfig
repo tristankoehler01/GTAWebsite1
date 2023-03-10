@@ -16,24 +16,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\armin\Documents\GTA\GTAWebsite\GTAWebsite
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/Courses/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlc1xDcmVhdGUuY3NodG1s
+[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/AddCourse/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ291cnNlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/Courses/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlc1xEZWxldGUuY3NodG1s
+[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/AddCourse/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ291cnNlXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/Courses/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlc1xEZXRhaWxzLmNzaHRtbA==
+[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/AddCourse/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ291cnNlXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/Courses/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlc1xFZGl0LmNzaHRtbA==
+[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/AddCourse/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ291cnNlXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/Courses/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlc1xJbmRleC5jc2h0bWw=
+[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/AddCourse/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ291cnNlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/Error.cshtml]
