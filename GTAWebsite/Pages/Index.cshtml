@@ -22,28 +22,32 @@
 
     .area {
         display:flex;
-        float:right;
+        padding:10px;
     }
 </style>
 
-@{
-    SelectList posItems = new SelectList(Models.Menu.positions, Models.Menu.positions.ElementAt(0));
-    <div>Position</div>
-    <div>@Html.DropDownList("positions", posItems)</div>
-    SelectList qualItems = new SelectList(Models.Menu.qualifications, Models.Menu.qualifications.ElementAt(0));
-    <div>Qualification</div>
-    <div>@Html.DropDownList("qualifications", qualItems)</div>
-    SelectList courseItems = new SelectList(Models.Menu.courses, Models.Menu.courses.ElementAt(0));
-    <div>Course</div>
-    <div>@Html.DropDownList("courses", courseItems)</div>
-    <button type="button" class="btn btn-primary" onclick="displayGroups()">Submit</button>
-    <div class="area" id="area"></div>
-
-}
+<div class="area" id="area1" style="float:left; flex-direction:column">
+    @{
+        SelectList posItems = new SelectList(Models.Menu.positions, Models.Menu.positions.ElementAt(0));
+        <div>Position</div>
+        <div>@Html.DropDownList("positions", posItems)</div>
+        <br />
+        SelectList qualItems = new SelectList(Models.Menu.qualifications, Models.Menu.qualifications.ElementAt(0));
+        <div>Qualification</div>
+        <div>@Html.DropDownList("qualifications", qualItems)</div>
+        <br />
+        SelectList courseItems = new SelectList(Models.Menu.courses, Models.Menu.courses.ElementAt(0));
+        <div>Course</div>
+        <div>@Html.DropDownList("courses", courseItems)</div>
+        <br />
+        <button type="button" class="btn btn-primary" onclick="displayGroups()">Submit</button>
+    }
+</div>
+<div class="area" id="area2" style="float:right"></div>
 
 <script>
     function displayGroups() {
-        document.getElementById("area").innerHTML = "";
+        document.getElementById("area2").innerHTML = "";
         var coursesShown = []
         var selectableCourses = @Json.Serialize(GTAWebsite.Pages.IndexModel.Course);
         for (i in selectableCourses) {
@@ -64,14 +68,13 @@
 
             if (hasCourse && hasPos && hasQual) {
                 coursesShown.push(selectableCourses[i]);
-                console.log("success");
             }
         }
 
 
         let text = "";
         if (coursesShown.length == 0) {
-            text = "No results found";
+            text = "No results found.";
         }
         else {
             for (let i in coursesShown) {
@@ -79,6 +82,6 @@
             }
         }
 
-        document.getElementById("area").innerHTML = text;
+        document.getElementById("area2").innerHTML = text;
     }
 </script>

@@ -60,6 +60,14 @@ namespace Form
                 }
             }
 
+            if (!ModelState.IsValid || _context.FormApplication == null || Form == null)
+            {
+                return Page();
+            }
+
+            _context.FormApplication.Add(Form);
+            _context.SaveChanges();
+
             return RedirectToPage("Index");
         }
 
@@ -117,18 +125,6 @@ namespace Form
             return files;
         }
 
-        public async Task<IActionResult> OnPostAsync()
-        {
-            if (!ModelState.IsValid || _context.FormApplication == null || Form == null)
-            {
-                return Page();
-            }
-
-            _context.FormApplication.Add(Form);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
-        }
     }
 
 

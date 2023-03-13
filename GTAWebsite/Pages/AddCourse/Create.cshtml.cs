@@ -29,7 +29,7 @@ namespace GTAWebsite.Pages.AddCourse
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost()
         {
           if (!ModelState.IsValid || _context.Course == null || Course == null)
             {
@@ -37,9 +37,9 @@ namespace GTAWebsite.Pages.AddCourse
             }
 
             _context.Course.Add(Course);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("Index");
         }
     }
 }
