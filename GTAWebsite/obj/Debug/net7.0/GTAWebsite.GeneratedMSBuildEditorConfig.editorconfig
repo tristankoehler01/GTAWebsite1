@@ -9,57 +9,81 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GTAWebsite
 build_property.RootNamespace = GTAWebsite
-build_property.ProjectDir = C:\Users\armin\Documents\GTA\GTAWebsite\GTAWebsite\
+build_property.ProjectDir = D:\armin ravini\Documents\GTAWebsite2\GTAWebsite1\GTAWebsite\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\armin\Documents\GTA\GTAWebsite\GTAWebsite
+build_property.MSBuildProjectDirectory = D:\armin ravini\Documents\GTAWebsite2\GTAWebsite1\GTAWebsite
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/AddCourse/Create.cshtml]
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/AddCourse/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ291cnNlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/AddCourse/Delete.cshtml]
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/AddCourse/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ291cnNlXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/AddCourse/Details.cshtml]
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/AddCourse/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ291cnNlXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/AddCourse/Edit.cshtml]
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/AddCourse/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ291cnNlXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/AddCourse/Index.cshtml]
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/AddCourse/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ291cnNlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/Error.cshtml]
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/AddFile/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkRmlsZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/AddFile/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkRmlsZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/AddFile/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkRmlsZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/AddFile/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkRmlsZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/AddFile/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkRmlsZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/Index.cshtml]
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRm9ybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/Privacy.cshtml]
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/_ViewImports.cshtml]
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/_ViewStart.cshtml]
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/armin/Documents/GTA/GTAWebsite/GTAWebsite/Pages/Shared/_Layout.cshtml]
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-toovxyf63a

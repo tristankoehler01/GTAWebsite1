@@ -2,10 +2,6 @@ namespace GTAWebsite.Models
 {
     public class Menu
     {
-        public string Position { get; set; }
-        public string Qualification { get; set; }
-        public string GraderCourses { get; set; }
-        public string LabCourses { get; set; }
 
         public static List<string> positions = new List<string>() { "Any", "Grader", "Graduate Teaching Assistant", "Lab Instructor" };
         public static List<string> qualifications = new List<string>() { "Any", "BS", "MB", "PhD" };

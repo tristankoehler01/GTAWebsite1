@@ -22,24 +22,21 @@
 
     .area {
         display:flex;
+        float:right;
     }
 </style>
 
 @{
     SelectList posItems = new SelectList(Models.Menu.positions, Models.Menu.positions.ElementAt(0));
     <div>Position</div>
-    <div>@Html.DropDownList("position", posItems)</div>
-    <br>
+    <div>@Html.DropDownList("positions", posItems)</div>
     SelectList qualItems = new SelectList(Models.Menu.qualifications, Models.Menu.qualifications.ElementAt(0));
     <div>Qualification</div>
     <div>@Html.DropDownList("qualifications", qualItems)</div>
-    <br>
     SelectList courseItems = new SelectList(Models.Menu.courses, Models.Menu.courses.ElementAt(0));
     <div>Course</div>
     <div>@Html.DropDownList("courses", courseItems)</div>
-    <br>
     <button type="button" class="btn btn-primary" onclick="displayGroups()">Submit</button>
-    <br>
     <div class="area" id="area"></div>
 
 }
@@ -55,7 +52,17 @@
                 hasCourse = true;
             }
 
-            if (hasCourse) {
+            let hasPos = false;
+            if (selectableCourses[i].positionName == document.getElementById("positions").value || document.getElementById("positions").value == "Any") {
+                hasPos = true;
+            }
+
+            let hasQual = false;
+            if (selectableCourses[i].qualificationName == document.getElementById("qualifications").value || document.getElementById("qualifications").value == "Any") {
+                hasQual = true;
+            }
+
+            if (hasCourse && hasPos && hasQual) {
                 coursesShown.push(selectableCourses[i]);
                 console.log("success");
             }
@@ -68,7 +75,7 @@
         }
         else {
             for (let i in coursesShown) {
-            text += "<div class='group-block'>" + coursesShown[i].courseName + "<button type='submit' class='btn btn-primary'>More</button></div>";
+            text += "<div class='group-block'>" + coursesShown[i].courseName + "<a href='./Form' type='button' class='btn btn-primary'>More</a></div>";
             }
         }
 
