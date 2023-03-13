@@ -23,7 +23,7 @@ namespace GTAWebsite.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Course>().ToTable("Course");
-            modelBuilder.Entity<FileModel>().ToTable("Model");
+            modelBuilder.Entity<FileModel>().ToTable("Files");
             modelBuilder.Entity<FormApplication>().ToTable("Application");
         }
 

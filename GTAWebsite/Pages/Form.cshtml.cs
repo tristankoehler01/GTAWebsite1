@@ -1,11 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel;
-using Microsoft.EntityFrameworkCore;
-using System.IO.Compression;
-using GTAWebsite.Data;
 using GTAWebsite.Models;
+using System.IO;
+using System.Data.SqlClient;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+
 
 namespace Form
 {
@@ -17,51 +18,119 @@ namespace Form
         private IConfiguration _configuration;
         private readonly ILogger<FormModel> _logger;
         public GTAWebsite.Data.GTAWebsiteContext _context;
+        public List<FileModel> Files;
 
 
         [BindProperty]
-        public FormApplication form { get; set; } = default!;
+        public FormApplication Form { get; set; } = default!;
 
-        [BindProperty]
-        public SingleFileUploadDb fileUpload { get; set; }
-
-        public async Task<IActionResult> OnPostUploadAsync()
+        public FormModel(IConfiguration configuration, ILogger<FormModel> logger, GTAWebsite.Data.GTAWebsiteContext context)
         {
-            using (var memoryStream = new MemoryStream())
+            _configuration = configuration;
+            _logger = logger;
+            _context = context;
+        }
+
+        public void OnGet()
+        {
+            this.Files = this.GetFiles();
+        }
+
+        public IActionResult OnPostUploadFile(IFormFile postedFile)
+        {
+            string fileName = Path.GetFileName(postedFile.FileName);
+            string contentType = postedFile.ContentType;
+            using (MemoryStream ms = new MemoryStream())
             {
-                await fileUpload.file.CopyToAsync(memoryStream);
-
-                // Upload the file if less than 2 MB
-                if (memoryStream.Length < 2097152)
+                postedFile.CopyTo(ms);
+                string constr = this._configuration.GetConnectionString("GTAWebsiteContext");
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    var fileM = new FileModel()
+                    string query = "INSERT INTO Files VALUES (@Name, @ContentType, @Data)";
+                    using (SqlCommand cmd = new SqlCommand(query))
                     {
-                        Content = memoryStream.ToArray()
-                    };
-
-                    _context.FormApplication.Add(form);
-                    _context.FileModel.Add(fileM);
-
-                    await _context.SaveChangesAsync();
-                }
-                else
-                {
-                    ModelState.AddModelError("File", "The file is too large.");
+                        cmd.Connection = con;
+                        cmd.Parameters.AddWithValue("@Name", fileName);
+                        cmd.Parameters.AddWithValue("@ContentType", contentType);
+                        cmd.Parameters.AddWithValue("@Data", ms.ToArray());
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
                 }
             }
 
             return RedirectToPage("Index");
         }
 
+        public FileResult OnGetDownloadFile(int fileId)
+        {
+            byte[] bytes;
+            string fileName, contentType;
+            string constr = this._configuration.GetConnectionString("GTAWebsiteContext");
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SELECT Name, Data, ContentType FROM Files WHERE Id=@Id";
+                    cmd.Parameters.AddWithValue("@Id", fileId);
+                    cmd.Connection = con;
+                    con.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        sdr.Read();
+                        bytes = (byte[])sdr["Data"];
+                        contentType = sdr["ContentType"].ToString();
+                        fileName = sdr["Name"].ToString();
+                    }
+                    con.Close();
+                }
+            }
 
+            return File(bytes, contentType, fileName);
+        }
+
+        private List<FileModel> GetFiles()
+        {
+            List<FileModel> files = new List<FileModel>();
+            string constr = this._configuration.GetConnectionString("GTAWebsiteContext");
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT Id, Name FROM Files"))
+                {
+                    cmd.Connection = con;
+                    con.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        while (sdr.Read())
+                        {
+                            files.Add(new FileModel
+                            {
+                                Id = Convert.ToInt32(sdr["Id"]),
+                                Name = sdr["Name"].ToString()
+                            });
+                        }
+                    }
+                    con.Close();
+                }
+            }
+            return files;
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid || _context.FormApplication == null || Form == null)
+            {
+                return Page();
+            }
+
+            _context.FormApplication.Add(Form);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
+        }
     }
 
-    public class SingleFileUploadDb
-    {
-        public int Id { get; set; }
 
-        [Required]
-        [Display(Name = "File")]
-        public IFormFile file;
-    }
+
 }
