@@ -1,0 +1,17 @@
+﻿@page
+@model GTAWebsite.Pages.MoreModel
+@{
+    <style>
+    .more-area {
+        display:flex;
+        padding:10px
+    }
+    </style>
+
+    <div class='more-area' id='area1'></div>
+
+    <script>
+        var course = JSON.parse(localStorage.getItem("object"));
+        document.getElementById("area1").innerHTML = "Course: " + course.courseName + "<br>About: " + course.courseDescription + "<br>Position: " + course.positionName + "<br>Qualification Needed: " + course.qualificationName + "<br><a href='./Form' type='button' class='btn btn-primary'>Apply</a>";
+    </script>
+}

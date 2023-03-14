@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\armin ravini\\Documents\\GTAWebsite2\\GTAWebsite1\\GTAWebsite\\GTAWebsite.csproj": {}
+    "C:\\Users\\armin\\Documents\\GTA\\GTAWebsite\\GTAWebsite\\GTAWebsite.csproj": {}
   },
   "projects": {
-    "D:\\armin ravini\\Documents\\GTAWebsite2\\GTAWebsite1\\GTAWebsite\\GTAWebsite.csproj": {
+    "C:\\Users\\armin\\Documents\\GTA\\GTAWebsite\\GTAWebsite\\GTAWebsite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\armin ravini\\Documents\\GTAWebsite2\\GTAWebsite1\\GTAWebsite\\GTAWebsite.csproj",
+        "projectUniqueName": "C:\\Users\\armin\\Documents\\GTA\\GTAWebsite\\GTAWebsite\\GTAWebsite.csproj",
         "projectName": "GTAWebsite",
-        "projectPath": "D:\\armin ravini\\Documents\\GTAWebsite2\\GTAWebsite1\\GTAWebsite\\GTAWebsite.csproj",
-        "packagesPath": "C:\\Users\\armin ravini\\.nuget\\packages\\",
-        "outputPath": "D:\\armin ravini\\Documents\\GTAWebsite2\\GTAWebsite1\\GTAWebsite\\obj\\",
+        "projectPath": "C:\\Users\\armin\\Documents\\GTA\\GTAWebsite\\GTAWebsite\\GTAWebsite.csproj",
+        "packagesPath": "C:\\Users\\armin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\armin\\Documents\\GTA\\GTAWebsite\\GTAWebsite\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\armin ravini\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\armin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }
