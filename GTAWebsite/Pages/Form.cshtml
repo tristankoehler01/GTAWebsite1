@@ -1,10 +1,12 @@
 @page
 @addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
-@model Form.FormModel
+@model FormModel
+@using Newtonsoft.Json;
+@using System.Linq;
 @{
 }
 
-<div class="row">
+<div id="form1" class="row">
     <div class="col-lg-9 mx-auto rounded border p-3">
         <h2 class="text-center mb-5"> Application Form</h2>
 
@@ -75,3 +77,9 @@
     </div>
 
 </div>
+
+<script>
+    var convert = localStorage.getItem("object");
+    var course = JSON.parse(convert);
+    console.log(course);
+</script>

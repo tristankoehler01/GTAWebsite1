@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\armin\\Documents\\GTA\\GTAWebsite\\GTAWebsite\\GTAWebsite.csproj": {}
+    "D:\\armin ravini\\Documents\\GTAWebsite2\\GTAWebsite1\\GTAWebsite\\GTAWebsite.csproj": {}
   },
   "projects": {
-    "C:\\Users\\armin\\Documents\\GTA\\GTAWebsite\\GTAWebsite\\GTAWebsite.csproj": {
+    "D:\\armin ravini\\Documents\\GTAWebsite2\\GTAWebsite1\\GTAWebsite\\GTAWebsite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\armin\\Documents\\GTA\\GTAWebsite\\GTAWebsite\\GTAWebsite.csproj",
+        "projectUniqueName": "D:\\armin ravini\\Documents\\GTAWebsite2\\GTAWebsite1\\GTAWebsite\\GTAWebsite.csproj",
         "projectName": "GTAWebsite",
-        "projectPath": "C:\\Users\\armin\\Documents\\GTA\\GTAWebsite\\GTAWebsite\\GTAWebsite.csproj",
-        "packagesPath": "C:\\Users\\armin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\armin\\Documents\\GTA\\GTAWebsite\\GTAWebsite\\obj\\",
+        "projectPath": "D:\\armin ravini\\Documents\\GTAWebsite2\\GTAWebsite1\\GTAWebsite\\GTAWebsite.csproj",
+        "packagesPath": "C:\\Users\\armin ravini\\.nuget\\packages\\",
+        "outputPath": "D:\\armin ravini\\Documents\\GTAWebsite2\\GTAWebsite1\\GTAWebsite\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\armin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\armin ravini\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,21 +42,21 @@
           "dependencies": {
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.3, )"
+              "version": "[7.0.4, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.3, )"
+              "version": "[7.0.4, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.3, )"
+              "version": "[7.0.4, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[7.0.4, )"
+              "version": "[7.0.5, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
@@ -82,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

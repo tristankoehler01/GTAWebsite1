@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
 
 namespace GTAWebsite.Models
@@ -6,6 +8,8 @@ namespace GTAWebsite.Models
     public class FormApplication
     {
         public int Id { get; set; }
+
+        public Course Course { get; set; } = new Course();
 
         [BindProperty]
         public string FirstName { get; set; } = "";

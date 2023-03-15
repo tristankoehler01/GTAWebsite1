@@ -4,6 +4,7 @@
     <style>
     .more-area {
         display:flex;
+        flex-direction:column;
         padding:10px
     }
     </style>
@@ -12,6 +13,6 @@
 
     <script>
         var course = JSON.parse(localStorage.getItem("object"));
-        document.getElementById("area1").innerHTML = "Course: " + course.courseName + "<br>About: " + course.courseDescription + "<br>Position: " + course.positionName + "<br>Qualification Needed: " + course.qualificationName + "<br><a href='./Form' type='button' class='btn btn-primary'>Apply</a>";
+        document.getElementById("area1").innerHTML = "Course: " + course.courseName + "<br>About: " + course.courseDescription + "<br>Position: " + course.positionName + "<br>Qualification Needed: " + course.qualificationName + "<br><a href='./Form' type='button' style='width:200px' class='btn btn-primary'>Apply</a>";
     </script>
 }
