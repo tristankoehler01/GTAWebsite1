@@ -16,6 +16,38 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\armin ravini\Documents\GTAWebsite2\GTAWebsite1\GTAWebsite
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Areas/Identity/Pages/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Areas/Identity/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/AddCourse/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ291cnNlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -36,10 +68,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ291cnNlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/CreateUser.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlVXNlci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -52,16 +80,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/More.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9yZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/armin ravini/Documents/GTAWebsite2/GTAWebsite1/GTAWebsite/Pages/Shared/_ValidationScriptsPartial.cshtml]

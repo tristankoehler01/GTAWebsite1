@@ -1,26 +1,13 @@
-﻿using Microsoft.AspNetCore.Components.Forms;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 namespace GTAWebsite.Models
 {
-    public class User
+    [Authorize(Roles = "Administrator")]
+    public class User : Controller
     {
-        public int Id { get; set; }
-
-        [Required]
-        public string UserName { get; set; }
-
-        [Required]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
-
-        [Required]
-        [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
-
-        [Required]
-        public string FullName { get; set; }
-
-        [Required]
-        public bool isAdmin { get; set; }
+        public IActionResult Index() =>
+         Content("Administrator");
     }
 }

@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using GTAWebsite.Data;
 using GTAWebsite.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GTAWebsite.Pages.AddCourse
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly GTAWebsite.Data.GTAWebsiteContext _context;

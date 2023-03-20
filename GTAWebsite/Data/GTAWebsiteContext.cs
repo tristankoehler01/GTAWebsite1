@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using GTAWebsite.Models;
 using GTAWebsite.Migrations;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace GTAWebsite.Data
 {
-    public class GTAWebsiteContext : DbContext
+    public class GTAWebsiteContext : IdentityDbContext
     {
 
         public GTAWebsiteContext (DbContextOptions<GTAWebsiteContext> options)
@@ -19,14 +20,13 @@ namespace GTAWebsite.Data
         public DbSet<GTAWebsite.Models.Course> Course { get; set; } = default!;
         public DbSet<GTAWebsite.Models.FileModel> FileModel { get; set; } = default!;
         public DbSet<GTAWebsite.Models.FormApplication> FormApplication { get; set; } = default!;
-        public DbSet<GTAWebsite.Models.User> User { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Course>().ToTable("Course");
             modelBuilder.Entity<FileModel>().ToTable("Files");
             modelBuilder.Entity<FormApplication>().ToTable("Application");
-            modelBuilder.Entity<User>().ToTable("User");
         }
 
 
