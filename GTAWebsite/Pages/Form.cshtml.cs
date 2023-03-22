@@ -7,11 +7,12 @@ using System.Data.SqlClient;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GTAWebsite.Pages
 {
 
-
+    [Authorize]
     public class FormModel : PageModel
 
     {
