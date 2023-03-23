@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 namespace GTAWebsite.Models
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "User")]
     public class User : Controller
     {
         public IActionResult Index() =>
-         Content("Administrator");
+         Content("User");
     }
 }

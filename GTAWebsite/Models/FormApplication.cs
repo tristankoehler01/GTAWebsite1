@@ -26,7 +26,6 @@ namespace GTAWebsite.Models
 
         [BindProperty]
         public bool GtaCertified { get; set; }
-
     }
 
 

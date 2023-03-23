@@ -26,20 +26,23 @@
     }
 </style>
 
+<h1>UMKC GTA Open Courses</h1>
 <div class="area" id="area1" style="float:left; flex-direction:column">
     @{
         SelectList posItems = new SelectList(Models.Menu.positions, Models.Menu.positions.ElementAt(0));
-        <div>Position</div>
-        <div>@Html.DropDownList("positions", posItems)</div>
-        <br />
         SelectList qualItems = new SelectList(Models.Menu.qualifications, Models.Menu.qualifications.ElementAt(0));
-        <div>Qualification</div>
-        <div>@Html.DropDownList("qualifications", qualItems)</div>
-        <br />
         SelectList courseItems = new SelectList(Models.Menu.courses, Models.Menu.courses.ElementAt(0));
-        <div>Course</div>
-        <div>@Html.DropDownList("courses", courseItems)</div>
-        <br />
+        <div>Position</div>
+        <div class="col-lg-9">
+            <div class="col-sm-2 col-form-label">@Html.DropDownList("positions", posItems)</div>
+            <br />
+            <div>Qualification</div>
+            <div class="col-sm-2 col-form-label">@Html.DropDownList("qualifications", qualItems)</div>
+            <br />
+            <div>Course</div>
+            <div class="col-sm-2 col-form-label">@Html.DropDownList("courses", courseItems)</div>
+            <br />
+        </div>
         <button type="button" class="btn btn-primary" onclick="displayGroups()">Submit</button>
     }
 </div>
