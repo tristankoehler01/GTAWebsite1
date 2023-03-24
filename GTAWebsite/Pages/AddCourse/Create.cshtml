@@ -15,7 +15,7 @@
                     List<string> newCourseList = new List<string>(Models.Menu.courses);
                     newCourseList.Remove("Any");
                     <div>Course</div>
-                    <select class="form-select-lg" asp-for="Course.courseName" asp-items="new SelectList(newCourseList, newCourseList.ElementAt(0))"></select>
+                    <select class="form-select-md" asp-for="Course.courseName" asp-items="new SelectList(newCourseList, newCourseList.ElementAt(0))"></select>
                 }
             </div>
             <div class="form-group">
@@ -28,7 +28,7 @@
                     List<string> newPosList = new List<string>(Models.Menu.positions);
                     newPosList.Remove("Any");
                     <div>Position</div>
-                    <select class="form-select-lg" asp-for="Course.positionName" asp-items="new SelectList(newPosList, newPosList.ElementAt(0))"></select>
+                    <select class="form-select-md" asp-for="Course.positionName" asp-items="new SelectList(newPosList, newPosList.ElementAt(0))"></select>
                  }
             </div>
             <div class="form-group">
@@ -36,7 +36,7 @@
                     List<string> newQualList = new List<string>(Models.Menu.qualifications);
                     newQualList.Remove("Any");
                     <div>Qualification</div>
-                    <select class="form-select-lg" asp-for="Course.qualificationName" asp-items="new SelectList(newQualList, newQualList.ElementAt(0))"></select>
+                    <select class="form-select-md" asp-for="Course.qualificationName" asp-items="new SelectList(newQualList, newQualList.ElementAt(0))"></select>
                 }
             </div>
             <div class="form-group">

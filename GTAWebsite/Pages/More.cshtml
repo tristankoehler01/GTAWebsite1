@@ -13,6 +13,6 @@
 
     <script>
         var course = JSON.parse(localStorage.getItem("object"));
-        document.getElementById("area1").innerHTML = "<div class='col-sm-2 col-form-label'>Course: " + course.courseName + "</div><br><div class='col-sm-2 col-form-label'>About: " + course.courseDescription + "</div><br><div class='col-sm-2 col-form-label'>Position: " + course.positionName + "</div><br><div class='col-sm-2 col-form-label'>Qualification Needed: " + course.qualificationName + "</div><br><a href='./Form' type='button' style='width:200px' class='btn btn-primary'>Apply</a>";
+        document.getElementById("area1").innerHTML = "<div class='col-sm-2 col-form-label'><h5><b>Course</b></h5>" + course.courseName + "</div><hr><div class='col-sm-2 col-form-label'><h5><b>About:</b></h5>" + course.courseDescription + "</div><hr><div class='col-sm-2 col-form-label'><h5><b>Position</b></h5>" + course.positionName + "</div><hr><div class='col-sm-2 col-form-label'><h5><b>Minimum Qualification</b></h5>" + course.qualificationName + "</div><hr><a href='./Form' type='button' style='width:200px' class='btn btn-primary'>Apply</a>";
     </script>
 }

@@ -7,7 +7,7 @@
 <style>
     .group-block {
         display:flex;
-        background-color:#005293;
+        background-color:#0173bc;
         float:left;
         color: white;
         margin:10px;
@@ -82,7 +82,7 @@
         }
         else {
             for (let i in coursesShown) {
-                text += "<div class='group-block' id='" + i.toString() + "'>" + coursesShown[i].courseName + "<a href='./More' type='button' class='btn btn-primary' onclick='pass(" + JSON.stringify(coursesShown[i]) + ")'>More</a></div>";
+                text += "<div class='group-block' id='" + i.toString() + "'>" + coursesShown[i].courseName + "<a href='./More' type='button' style='background-color:#005293' class='btn btn-primary' onclick='pass(" + JSON.stringify(coursesShown[i]) + ")'>More</a></div>";
             }
         }
 
