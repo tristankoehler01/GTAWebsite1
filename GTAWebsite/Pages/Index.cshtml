@@ -26,7 +26,7 @@
     }
 </style>
 
-<h1>UMKC GTA Open Courses</h1>
+<h1>Open Courses</h1>
 <div class="area" id="area1" style="float:left; flex-direction:column">
     @{
         SelectList posItems = new SelectList(Models.Menu.positions, Models.Menu.positions.ElementAt(0));
@@ -43,12 +43,13 @@
             <div class="col-sm-2 col-form-label">@Html.DropDownList("courses", courseItems)</div>
             <br />
         </div>
-        <button type="button" class="btn btn-primary" onclick="displayGroups()">Submit</button>
+        <button type="button" class="btn btn-primary" onclick="displayGroups()">Apply</button>
     }
 </div>
-<div class="area" id="area2" style="float:right"></div>
+<div class="area" id="area2" style="float:right" ></div>
 
 <script>
+    document.getElementById("area2").onload = displayGroups();
     function displayGroups() {
         document.getElementById("area2").innerHTML = "";
         var coursesShown = []

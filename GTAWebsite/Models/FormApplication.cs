@@ -9,8 +9,6 @@ namespace GTAWebsite.Models
     {
         public int Id { get; set; }
 
-        public Course Course { get; set; } = new Course();
-
         [BindProperty]
         public string FirstName { get; set; } = "";
 
