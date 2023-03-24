@@ -7,7 +7,7 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
-            <div style="color:white">Hello @UserManager.GetUserName(User)!</div>
+            <div class="border-0" style="color:white; padding:10px">Hello, @UserManager.GetUserName(User)!</div>
     </li>
     <li class="nav-item">
         <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
