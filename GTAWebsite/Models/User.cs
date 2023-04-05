@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Components.Forms;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 namespace GTAWebsite.Models
 {
-    public class User
+    [Authorize(Roles = "User")]
+    public class User : Controller
     {
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
-        public string FullName { get; set; }
+        public IActionResult Index() =>
+         Content("User");
     }
 }

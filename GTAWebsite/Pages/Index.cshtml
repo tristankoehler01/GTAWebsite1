@@ -1,5 +1,4 @@
-﻿
-@page
+﻿@page
 @model IndexModel
 @{
     ViewData["Title"] = "UMKC: Apply for Graduate Teaching";
@@ -8,7 +7,9 @@
 <style>
     .group-block {
         display:flex;
-        background-color:#005293;
+        background-color:#0173bc;
+        float:left;
+        color: white;
         margin:10px;
         padding:5px;
         align-items:center;
@@ -18,56 +19,85 @@
         height:200px;
         flex-direction:column
     }
+
+    .area {
+        display:flex;
+        padding:10px;
+    }
 </style>
 
-<form method="post">
-    <div class="form-group">
-        <label for="position">Position:</label>
-        <select class="form-control" id="position" name="Position">
-            @foreach (var value in Models.Manu.Manu.positions)
-            {
-                <option value="@value">@value</option>
-            }
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="qualification">Qualification:</label>
-        <select class="form-control" id="qualification" name="Qualification">
-            @foreach (var value in Models.Manu.Manu.qualifications)
-            {
-                <option value="@value">@value</option>
-            }
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="graderCourses">Grader Courses:</label>
-        <select class="form-control" id="graderCourses" name="GraderCourses">
-            @foreach (var value in Models.Manu.Manu.courses)
-            {
-                <option value="@value">@value</option>
-            }
-        </select>
-    </div>
-
-    <br>
-    <button id="filter-button" type="button" class="btn btn-primary" onclick="handleClick()">Submit</button>
-    <br>
-</form>
-
-@{
-    List<Models.Course> courses = IndexModel.Course;
-    List<Models.Course> shownCourses = new List<Models.Course>();
-
-    foreach (Models.Course c in courses)
-    {
-        shownCourses.Add(c);
+<h1>Open Courses</h1>
+<div class="area" id="area1" style="float:left; flex-direction:column">
+    @{
+        SelectList posItems = new SelectList(Models.Menu.positions, Models.Menu.positions.ElementAt(0));
+        SelectList qualItems = new SelectList(Models.Menu.qualifications, Models.Menu.qualifications.ElementAt(0));
+        SelectList courseItems = new SelectList(Models.Menu.courses, Models.Menu.courses.ElementAt(0));
+        <div>Position</div>
+        <div class="col-lg-9">
+            <div class="col-sm-2 col-form-label">@Html.DropDownList("positions", posItems)</div>
+            <br />
+            <div>Qualification</div>
+            <div class="col-sm-2 col-form-label">@Html.DropDownList("qualifications", qualItems)</div>
+            <br />
+            <div>Course</div>
+            <div class="col-sm-2 col-form-label">@Html.DropDownList("courses", courseItems)</div>
+            <br />
+        </div>
+        <button type="button" class="btn btn-primary" onclick="displayGroups()">Apply</button>
     }
-}
+</div>
+<div class="area" id="area2" style="float:right" ></div>
 
-@for (int i = 0; i < courses.Count; i++) {
-     <div class="group-block" style="float:left; color:white">
-     <div>@Html.DisplayFor(model => shownCourses.ElementAt(i).courseName)</div>
-     <div>@Html.DisplayFor(model => shownCourses.ElementAt(i).positionName)</div>
-     <button type = "submit" class="btn btn-primary" style="align-items:center">More</button>
-     </div>
-}
+<script>
+    document.getElementById("area2").onload = displayGroups();
+    function displayGroups() {
+        document.getElementById("area2").innerHTML = "";
+        var coursesShown = []
+        var selectableCourses = @Json.Serialize(GTAWebsite.Pages.IndexModel.Course);
+        for (i in selectableCourses) {
+            let hasCourse = false;
+            if (selectableCourses[i].courseName == document.getElementById("courses").value || document.getElementById("courses").value == "Any") {
+                hasCourse = true;
+            }
+
+            let hasPos = false;
+            if (selectableCourses[i].positionName == document.getElementById("positions").value || document.getElementById("positions").value == "Any") {
+                hasPos = true;
+            }
+
+            let hasQual = false;
+            if (selectableCourses[i].qualificationName == document.getElementById("qualifications").value || document.getElementById("qualifications").value == "Any") {
+                hasQual = true;
+            }
+
+            if (hasCourse && hasPos && hasQual) {
+                coursesShown.push(selectableCourses[i]);
+            }
+        }
+
+
+        let text = "";
+        if (coursesShown.length == 0) {
+            text = "No results found.";
+        }
+        else {
+            for (let i in coursesShown) {
+                text += "<div class='group-block' id='" + i.toString() + "'>" + coursesShown[i].courseName + "<a href='./More' type='button' style='background-color:#005293' class='btn btn-primary' onclick='pass(" + JSON.stringify(coursesShown[i]) + ")'>More</a></div>";
+            }
+        }
+
+        console.log(text);
+        document.getElementById("area2").innerHTML = text;
+        
+    }
+
+    function pass(c) {
+        if (localStorage.getItem("object") == null) {
+            localStorage.setItem("object", JSON.stringify(c));
+        }
+        else {
+            localStorage.removeItem("object");
+            localStorage.setItem("object", JSON.stringify(c));
+        }
+    }
+</script>
