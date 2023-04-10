@@ -1,11 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-namespace GTAWebsite.Models
+﻿namespace GTAWebsite.Models
 {
-    [Authorize(Roles ="Administrator")]
-    public class Admin : Controller
+    public class Admin: User
     {
-        public IActionResult Index() =>
-         Content("Administrator");
     }
 }

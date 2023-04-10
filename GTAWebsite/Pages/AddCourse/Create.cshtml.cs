@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace GTAWebsite.Pages.AddCourse
 {
-    [Authorize]
+    [Authorize(Policy = "RequireAdministratorRole")]
     public class CreateModel : PageModel
     {
         private readonly GTAWebsite.Data.GTAWebsiteContext _context;

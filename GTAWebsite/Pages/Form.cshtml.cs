@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace GTAWebsite.Pages
 {
 
-    [Authorize]
+    [Authorize(Policy = "RequireStudentRole")]
     public class FormModel : PageModel
 
     {

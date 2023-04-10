@@ -21,12 +21,15 @@ namespace GTAWebsite.Data
         public DbSet<GTAWebsite.Models.FileModel> FileModel { get; set; } = default!;
         public DbSet<GTAWebsite.Models.FormApplication> FormApplication { get; set; } = default!;
 
+        public DbSet<GTAWebsite.Models.User> Users { get; set;} = default!;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Course>().ToTable("Course");
             modelBuilder.Entity<FileModel>().ToTable("Files");
             modelBuilder.Entity<FormApplication>().ToTable("Application");
+            modelBuilder.Entity<User>().ToTable("Users");
         }
 
 
