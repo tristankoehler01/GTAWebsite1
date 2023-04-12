@@ -20,6 +20,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using GTAWebsite.Models;
 using GTAWebsite.Data;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace GTAWebsite.Areas.Identity.Pages.Account
 {
@@ -32,6 +33,7 @@ namespace GTAWebsite.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly GTAWebsite.Data.GTAWebsiteContext _context;
+        private readonly IServiceProvider _serviceProvider;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
@@ -39,7 +41,8 @@ namespace GTAWebsite.Areas.Identity.Pages.Account
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
-            GTAWebsiteContext context)
+            GTAWebsiteContext context,
+            IServiceProvider serviceProvider)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -48,6 +51,7 @@ namespace GTAWebsite.Areas.Identity.Pages.Account
             _logger = logger;
             _emailSender = emailSender;
             _context = context;
+            _serviceProvider = serviceProvider;
         }
 
         /// <summary>
@@ -120,20 +124,27 @@ namespace GTAWebsite.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                User user;
-                if (Input.isAdmin)
-                {
-                    user = CreateAdmin();
-                }
-                else
-                {
-                    user = CreateStudent();
-                }
-
+                var user = CreateUser();
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
+                var roleManager = _serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+                if (roleManager.Roles.Count<IdentityRole>() == 0)
+                {
+                    await roleManager.CreateAsync(new IdentityRole("Administrator"));
+                    await roleManager.CreateAsync(new IdentityRole("Student"));
+                }
+
+
+                if (Input.isAdmin)
+                {
+                    await _userManager.AddToRoleAsync(user, "Administrator");
+                }
+                else
+                {
+                    await _userManager.AddToRoleAsync(user, "Student");
+                }
 
                 if (result.Succeeded)
                 {
@@ -171,24 +182,11 @@ namespace GTAWebsite.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private Admin CreateAdmin()
+        private IdentityUser CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<Admin>();
-            }
-            catch
-            {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(IdentityUser)}'. " +
-                    $"Ensure that '{nameof(IdentityUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
-                    $"override the register page in /Areas/Identity/Pages/Account/Register.cshtml");
-            }
-        }
-        private Student CreateStudent()
-        {
-            try
-            {
-                return Activator.CreateInstance<Student>();
+                return Activator.CreateInstance<IdentityUser>();
             }
             catch
             {

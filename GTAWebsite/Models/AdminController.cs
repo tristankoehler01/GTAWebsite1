@@ -7,7 +7,9 @@ namespace GTAWebsite.Models
     [Authorize(Roles = "Administrator")]
     public class AdminController : Controller
     {
-        public IActionResult Index() =>
-        Content("Admin");
+        public IActionResult Index()
+        {
+            return View();
+        }
     }
 }

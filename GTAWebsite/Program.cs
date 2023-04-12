@@ -9,7 +9,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddMvc();
-builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<GTAWebsiteContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("GTAWebsiteContext") ?? throw new InvalidOperationException("Connection string 'GTAWebsiteContext' not found.")));

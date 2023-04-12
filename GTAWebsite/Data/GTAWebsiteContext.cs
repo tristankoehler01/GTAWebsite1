@@ -23,6 +23,7 @@ namespace GTAWebsite.Data
 
         public DbSet<GTAWebsite.Models.User> Users { get; set;} = default!;
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

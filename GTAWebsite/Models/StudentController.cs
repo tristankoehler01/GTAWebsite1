@@ -4,7 +4,9 @@ namespace GTAWebsite.Models
 {
     [Authorize(Roles = "Student")]
     public class StudentController : Controller {
-        public IActionResult Index() =>
-        Content("Student");
+        public IActionResult Index()
+        {
+            return View();
+        }
     }
 }
