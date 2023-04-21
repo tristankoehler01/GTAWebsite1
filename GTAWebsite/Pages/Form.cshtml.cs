@@ -20,14 +20,15 @@ namespace GTAWebsite.Pages
 
     {
         private GTAWebsiteContext _context;
-
+        private ILogger<FormModel> _logger;
         private IConfiguration _configuration;
         public List<FileModel> files;
 
 
-        public FormModel(GTAWebsiteContext context, IConfiguration configuration)
+        public FormModel(GTAWebsiteContext context, ILogger<FormModel> logger, IConfiguration configuration)
         {
             _context = context;
+            _logger = logger;
             _configuration = configuration;
         }
 
@@ -36,11 +37,12 @@ namespace GTAWebsite.Pages
 
         public void OnGet()
         {
-            this.files = GetFiles();
+            this.files = this.GetFiles();
         }
 
         public IActionResult OnPostUploadFile(List<IFormFile> Attachment)
         {
+
             foreach (var file in Attachment)
             {
                 string fileName = Path.GetFileName(file.FileName);
@@ -101,7 +103,6 @@ namespace GTAWebsite.Pages
                     }
                     con.Close();
                 }
-                RedirectToPage("Index");
             }
             return files;
         }

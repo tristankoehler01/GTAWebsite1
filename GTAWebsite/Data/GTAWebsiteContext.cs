@@ -28,7 +28,7 @@ namespace GTAWebsite.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Course>().ToTable("Course");
-            modelBuilder.Entity<GTAWebsite.Models.FormApplication>().ToTable("Forms");
+            modelBuilder.Entity<FormApplication>().ToTable("Forms");
             modelBuilder.Entity<FileModel>().ToTable("Files");
         }
 
