@@ -21,8 +21,8 @@
     }
 
     .area {
-        display:flex;
-        padding:10px;
+        display:inline-flex;
+        margin:auto
     }
 </style>
 
@@ -46,7 +46,7 @@
         <button type="button" class="btn btn-primary" onclick="displayGroups()">Apply</button>
     }
 </div>
-<div class="area" id="area2" style="float:right; width:900px; flex-wrap:wrap"></div>
+<div class="area" id="area2" style="float:right; flex-wrap:wrap; overflow:auto"></div>
 
 <script>
     document.getElementById("area2").onload = displayGroups();

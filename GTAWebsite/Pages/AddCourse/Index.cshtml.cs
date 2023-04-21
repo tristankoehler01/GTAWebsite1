@@ -25,9 +25,9 @@ namespace GTAWebsite.Pages.AddCourse
 
         public async Task OnGetAsync()
         {
-            if (_context.Course != null)
+            if (_context.Courses != null)
             {
-                Course = await _context.Course.ToListAsync();
+                Course = await _context.Courses.ToListAsync();
             }
         }
     }

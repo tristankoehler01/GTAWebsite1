@@ -33,12 +33,12 @@ namespace GTAWebsite.Pages.AddCourse
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public IActionResult OnPost()
         {
-          if (!ModelState.IsValid || _context.Course == null || Course == null)
+          if (!ModelState.IsValid || _context.Courses == null || Course == null)
             {
                 return Page();
             }
 
-            _context.Course.Add(Course);
+            _context.Courses.Add(Course);
             _context.SaveChanges();
 
             return RedirectToPage("Index");

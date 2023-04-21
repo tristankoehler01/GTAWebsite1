@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
 
 namespace GTAWebsite.Models
@@ -23,8 +21,11 @@ namespace GTAWebsite.Models
         public string Phone { get; set; } = "";
 
         [BindProperty]
+        [Required]
+        [Display(Name = "Student ID")]
+        public string StudentID { get; set; } = "";
+
+        [BindProperty]
         public bool GtaCertified { get; set; }
     }
-
-
 }

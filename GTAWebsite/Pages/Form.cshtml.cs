@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Authorization;
+using GTAWebsite.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 
 namespace GTAWebsite.Pages
 {
@@ -16,88 +19,64 @@ namespace GTAWebsite.Pages
     public class FormModel : PageModel
 
     {
-        private IConfiguration _configuration;
-        private readonly ILogger<FormModel> _logger;
-        public GTAWebsite.Data.GTAWebsiteContext _context;
-        public List<FileModel> Files;
+        private GTAWebsiteContext _context;
 
+        private IConfiguration _configuration;
+        public List<FileModel> files;
+
+
+        public FormModel(GTAWebsiteContext context, IConfiguration configuration)
+        {
+            _context = context;
+            _configuration = configuration;
+        }
 
         [BindProperty]
-        public FormApplication Form { get; set; } = default!;
-
-        public FormModel(IConfiguration configuration, ILogger<FormModel> logger, GTAWebsite.Data.GTAWebsiteContext context)
-        {
-            _configuration = configuration;
-            _logger = logger;
-            _context = context;
-        }
+        public FormApplication form { get; set; } = default!;
 
         public void OnGet()
         {
-            this.Files = this.GetFiles();
+            this.files = GetFiles();
         }
 
-        public IActionResult OnPostUploadFile(IFormFile postedFile)
+        public IActionResult OnPostUploadFile(List<IFormFile> Attachment)
         {
-            string fileName = Path.GetFileName(postedFile.FileName);
-            string contentType = postedFile.ContentType;
-            using (MemoryStream ms = new MemoryStream())
+            foreach (var file in Attachment)
             {
-                postedFile.CopyTo(ms);
-                string constr = this._configuration.GetConnectionString("GTAWebsiteContext");
-                using (SqlConnection con = new SqlConnection(constr))
+                string fileName = Path.GetFileName(file.FileName);
+                string contentType = file.ContentType;
+                using (MemoryStream ms = new MemoryStream())
                 {
-                    string query = "INSERT INTO Files VALUES (@Name, @ContentType, @Data)";
-                    using (SqlCommand cmd = new SqlCommand(query))
+                    file.CopyTo(ms);
+                    string constr = this._configuration.GetConnectionString("GTAWebsiteContext");
+                    using (SqlConnection con = new SqlConnection(constr))
                     {
-                        cmd.Connection = con;
-                        cmd.Parameters.AddWithValue("@Name", fileName);
-                        cmd.Parameters.AddWithValue("@ContentType", contentType);
-                        cmd.Parameters.AddWithValue("@Data", ms.ToArray());
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
+                        string query = "INSERT INTO Files VALUES (@Name, @ContentType, @Data)";
+                        using (SqlCommand cmd = new SqlCommand(query))
+                        {
+                            cmd.Connection = con;
+                            cmd.Parameters.AddWithValue("@Name", fileName);
+                            cmd.Parameters.AddWithValue("@ContentType", contentType);
+                            cmd.Parameters.AddWithValue("@Data", ms.ToArray());
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                        }
                     }
                 }
             }
 
-            if (!ModelState.IsValid || _context.FormApplication == null || Form == null)
+            if (!ModelState.IsValid || _context.Forms == null || form == null)
             {
                 return Page();
             }
 
-            _context.FormApplication.Add(Form);
+            _context.Forms.Add(form);
             _context.SaveChanges();
 
             return RedirectToPage("Index");
         }
 
-        public FileResult OnGetDownloadFile(int fileId)
-        {
-            byte[] bytes;
-            string fileName, contentType;
-            string constr = this._configuration.GetConnectionString("GTAWebsiteContext");
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.CommandText = "SELECT Name, Data, ContentType FROM Files WHERE Id=@Id";
-                    cmd.Parameters.AddWithValue("@Id", fileId);
-                    cmd.Connection = con;
-                    con.Open();
-                    using (SqlDataReader sdr = cmd.ExecuteReader())
-                    {
-                        sdr.Read();
-                        bytes = (byte[])sdr["Data"];
-                        contentType = sdr["ContentType"].ToString();
-                        fileName = sdr["Name"].ToString();
-                    }
-                    con.Close();
-                }
-            }
-
-            return File(bytes, contentType, fileName);
-        }
 
         private List<FileModel> GetFiles()
         {
@@ -122,12 +101,10 @@ namespace GTAWebsite.Pages
                     }
                     con.Close();
                 }
+                RedirectToPage("Index");
             }
             return files;
         }
 
     }
-
-
-
 }

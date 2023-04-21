@@ -27,12 +27,12 @@ namespace GTAWebsite.Pages.AddCourse
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Course == null)
+            if (id == null || _context.Courses == null)
             {
                 return NotFound();
             }
 
-            var course =  await _context.Course.FirstOrDefaultAsync(m => m.Id == id);
+            var course =  await _context.Courses.FirstOrDefaultAsync(m => m.Id == id);
             if (course == null)
             {
                 return NotFound();
@@ -73,7 +73,7 @@ namespace GTAWebsite.Pages.AddCourse
 
         private bool CourseExists(int id)
         {
-          return (_context.Course?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Courses?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
