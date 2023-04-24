@@ -1,0 +1,85 @@
+@page
+@model Pages.FormModel
+@{
+}
+
+<div class="row">
+    <div class="col-lg-9 mx-auto rounded border p-3">
+        <h2 class="text-center mb-5"> Application Form</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">First Name *</label>
+                <div class="col-sm-5">
+                    <input class="form-control" asp-for="form.FirstName">
+                    <span asp-validation-for="form.FirstName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Last Name *</label>
+                <div class="col-sm-5">
+                    <input class="form-control" asp-for="form.LastName">
+                    <span asp-validation-for="form.LastName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Email *</label>
+                <div class="col-sm-5">
+                    <input class="form-control" asp-for="form.Email">
+                    <span asp-validation-for="form.Email" class="text-danger"></span>
+
+                </div>
+
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Phone *</label>
+                <div class="col-sm-5">
+                    <input class="form-control" asp-for="form.Phone">
+                    <span asp-validation-for="form.Phone" class="text-danger"></span>
+
+                </div>
+
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Student ID *</label>
+                <div class="col-sm-5">
+                    <input class="form-control" asp-for="form.StudentID">
+                    <span asp-validation-for="form.StudentID" class="text-danger"></span>
+
+                </div>
+
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">GTA Certified? *</label>
+                <div class="col-sm-5">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" asp-for="form.GtaCertified">
+                        <span asp-validation-for="form.GtaCertified" class="text-danger"></span>
+                        <label class="form-check-label" for="form.GtaCertified">Yes, I am GTA certified</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Files (Transcript, Resume, GTA Certification, etc.)</label>
+                <div class="col-sm-5">
+                    <input name="Attachment" id="Attachment" class="button" type="file" multiple="multiple" accept=".pdf,.doc,.docx,.txt,.rtf" required>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="offset-sm-4" col-sm-8>
+                    <input class="button" type="submit" value="Upload" asp-page-handler="UploadFile">
+
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+
+</div>

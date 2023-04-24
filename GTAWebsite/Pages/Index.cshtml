@@ -1,14 +1,103 @@
-﻿
-@page
+﻿@page
 @model IndexModel
 @{
     ViewData["Title"] = "UMKC: Apply for Graduate Teaching";
 }
 
-<div class="text-center">
-    @foreach (var item in Model.Course)
-    {
-        <div style="align-content:center; width:250px; height:100px; border:solid; border-width:5px; text-align:center; background-color:#005293; border-color:#FECB00; color:white">@Html.DisplayFor(modelItem => item.courseName)</div>
-        <br>
+<style>
+    .group-block {
+        display:flex;
+        background-color:#0173bc;
+        float:left;
+        color: white;
+        margin:10px;
+        padding:5px;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        width:200px;
+        height:200px;
+        flex-direction:column
+    }
+
+    .area {
+        display:inline-flex;
+        margin:auto
+    }
+</style>
+
+<h1>Open Courses</h1>
+<div class="area" id="area1" style="float:left; flex-direction:column">
+    @{
+        SelectList posItems = new SelectList(Models.Menu.positions, Models.Menu.positions.ElementAt(0));
+        SelectList qualItems = new SelectList(Models.Menu.qualifications, Models.Menu.qualifications.ElementAt(0));
+        SelectList courseItems = new SelectList(Models.Menu.courses, Models.Menu.courses.ElementAt(0));
+        <div>Position</div>
+        <div class="col-lg-9">
+            <div class="col-sm-2 col-form-label">@Html.DropDownList("positions", posItems)</div>
+            <br />
+            <div>Qualification</div>
+            <div class="col-sm-2 col-form-label">@Html.DropDownList("qualifications", qualItems)</div>
+            <br />
+            <div>Course</div>
+            <div class="col-sm-2 col-form-label">@Html.DropDownList("courses", courseItems)</div>
+            <br />
+        </div>
+        <button type="button" class="btn btn-primary" onclick="displayGroups()">Apply</button>
     }
 </div>
+<div class="area" id="area2" style="float:right; flex-wrap:wrap; overflow:auto"></div>
+
+<script>
+    document.getElementById("area2").onload = displayGroups();
+    function displayGroups() {
+        document.getElementById("area2").innerHTML = "";
+        var coursesShown = []
+        var selectableCourses = @Json.Serialize(GTAWebsite.Pages.IndexModel.Course);
+        for (i in selectableCourses) {
+            let hasCourse = false;
+            if (selectableCourses[i].courseName == document.getElementById("courses").value || document.getElementById("courses").value == "Any") {
+                hasCourse = true;
+            }
+
+            let hasPos = false;
+            if (selectableCourses[i].positionName == document.getElementById("positions").value || document.getElementById("positions").value == "Any") {
+                hasPos = true;
+            }
+
+            let hasQual = false;
+            if (selectableCourses[i].qualificationName == document.getElementById("qualifications").value || document.getElementById("qualifications").value == "Any") {
+                hasQual = true;
+            }
+
+            if (hasCourse && hasPos && hasQual) {
+                coursesShown.push(selectableCourses[i]);
+            }
+        }
+
+
+        let text = "";
+        if (coursesShown.length == 0) {
+            text = "No results found.";
+        }
+        else {
+            for (let i in coursesShown) {
+                text += "<div class='group-block' id='" + i.toString() + "'>" + coursesShown[i].courseName + "<a href='./More' type='button' style='background-color:#005293' class='btn btn-primary' onclick='pass(" + JSON.stringify(coursesShown[i]) + ")'>More</a></div>";
+            }
+        }
+
+        console.log(text);
+        document.getElementById("area2").innerHTML = text;
+        
+    }
+
+    function pass(c) {
+        if (localStorage.getItem("object") == null) {
+            localStorage.setItem("object", JSON.stringify(c));
+        }
+        else {
+            localStorage.removeItem("object");
+            localStorage.setItem("object", JSON.stringify(c));
+        }
+    }
+</script>

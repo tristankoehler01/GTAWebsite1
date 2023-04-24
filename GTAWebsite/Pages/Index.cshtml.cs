@@ -9,22 +9,24 @@ namespace GTAWebsite.Pages
 {
     public class IndexModel : PageModel
     {
+        private IConfiguration _configuration;
         private readonly ILogger<IndexModel> _logger;
-        private readonly GTAWebsite.Data.GTAWebsiteContext _context;
+        public GTAWebsite.Data.GTAWebsiteContext _context;
 
-        public IndexModel(ILogger<IndexModel> logger, GTAWebsite.Data.GTAWebsiteContext context)
+        public IndexModel(IConfiguration configuration, ILogger<IndexModel> logger, GTAWebsite.Data.GTAWebsiteContext context)
         {
+            _configuration = configuration;
             _logger = logger;
             _context = context;
         }
 
-        public IList<Course> Course { get; set; } = default!;
+        public static List<Course> Course { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Course != null)
+            if (_context.Courses != null)
             {
-                Course = await _context.Course.ToListAsync();
+                Course = await _context.Courses.ToListAsync();
             }
         }
 
