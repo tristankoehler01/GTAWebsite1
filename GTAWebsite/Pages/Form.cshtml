@@ -2,6 +2,13 @@
 @model Pages.FormModel
 @{
 }
+@if (!string.IsNullOrEmpty(TempData["Message"] as string))
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
 
 <div class="row">
     <div class="col-lg-9 mx-auto rounded border p-3">
@@ -78,6 +85,8 @@
                 </div>
 
             </div>
+             
+
         </form>
 
     </div>

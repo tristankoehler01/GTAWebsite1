@@ -34,6 +34,7 @@ namespace GTAWebsite.Pages
 
         [BindProperty]
         public FormApplication form { get; set; } = default!;
+         
 
         public void OnGet()
         {
@@ -76,7 +77,11 @@ namespace GTAWebsite.Pages
             _context.Forms.Add(form);
             _context.SaveChanges();
 
-            return RedirectToPage("Index");
+            // Clear the form and display a success message
+            form = new FormApplication();
+            TempData["Message"] = "Application submitted successfully.";
+
+            return RedirectToPage();
         }
 
 
