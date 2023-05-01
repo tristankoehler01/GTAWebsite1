@@ -40,6 +40,14 @@
                 }
             </div>
             <div class="form-group">
+                @{
+                    List<string> newSemList = new List<string>(Models.Menu.semesters);
+                    newSemList.Remove("Any");
+                    <div>Semester</div>
+                    <select class="form-select-md" asp-for="Course.semester" asp-items="new SelectList(newSemList, newSemList.ElementAt(0))"></select>
+                }
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary"/>
             </div>
         </form>

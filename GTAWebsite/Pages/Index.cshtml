@@ -32,6 +32,7 @@
         SelectList posItems = new SelectList(Models.Menu.positions, Models.Menu.positions.ElementAt(0));
         SelectList qualItems = new SelectList(Models.Menu.qualifications, Models.Menu.qualifications.ElementAt(0));
         SelectList courseItems = new SelectList(Models.Menu.courses, Models.Menu.courses.ElementAt(0));
+        SelectList semesterItems = new SelectList(Models.Menu.semesters, Models.Menu.semesters.ElementAt(0));
         <div>Position</div>
         <div class="col-lg-9">
             <div class="col-sm-2 col-form-label">@Html.DropDownList("positions", posItems)</div>
@@ -41,6 +42,9 @@
             <br />
             <div>Course</div>
             <div class="col-sm-2 col-form-label">@Html.DropDownList("courses", courseItems)</div>
+            <br />
+            <div>Semester</div>
+            <div class="col-sm-2 col-form-label">@Html.DropDownList("semesters", semesterItems)</div>
             <br />
         </div>
         <button type="button" class="btn btn-primary" onclick="displayGroups()">Apply</button>
@@ -70,7 +74,12 @@
                 hasQual = true;
             }
 
-            if (hasCourse && hasPos && hasQual) {
+            let hasSem = false;
+            if (selectableCourses[i].semester == document.getElementById("semesters").value || document.getElementById("semesters").value == "Any") {
+                hasSem = true;
+            }
+
+            if (hasCourse && hasPos && hasQual && hasSem) {
                 coursesShown.push(selectableCourses[i]);
             }
         }

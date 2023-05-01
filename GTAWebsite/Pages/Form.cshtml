@@ -53,6 +53,16 @@
             </div>
 
             <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Grade in Class *</label>
+                <div class="col-sm-5">
+                    <input class="form-control" asp-for="form.Grade">
+                    <span asp-validation-for="form.Grade" class="text-danger"></span>
+
+                </div>
+
+            </div>
+
+            <div class="row mb-3">
                 <label class="col-sm-2 col-form-label">GTA Certified? *</label>
                 <div class="col-sm-5">
                     <div class="form-check">

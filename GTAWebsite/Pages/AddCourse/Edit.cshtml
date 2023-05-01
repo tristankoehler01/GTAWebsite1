@@ -15,24 +15,41 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Course.Id" />
             <div class="form-group">
-                <label asp-for="Course.courseName" class="control-label"></label>
-                <input asp-for="Course.courseName" class="form-control" />
-                <span asp-validation-for="Course.courseName" class="text-danger"></span>
+                @{
+                    List<string> newCourseList = new List<string>(Models.Menu.courses);
+                    newCourseList.Remove("Any");
+                    <div>Course</div>
+                    <select class="form-select-md" asp-for="Course.courseName" asp-items="new SelectList(newCourseList, newCourseList.ElementAt(0))"></select>
+                }
             </div>
             <div class="form-group">
-                <label asp-for="Course.courseDescription" class="control-label"></label>
-                <input asp-for="Course.courseDescription" class="form-control" />
+                <div>Description</div>
+                <textarea asp-for="Course.courseDescription" class="form-control"></textarea>
                 <span asp-validation-for="Course.courseDescription" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Course.positionName" class="control-label"></label>
-                <input asp-for="Course.positionName" class="form-control" />
-                <span asp-validation-for="Course.positionName" class="text-danger"></span>
+                @{
+                    List<string> newPosList = new List<string>(Models.Menu.positions);
+                    newPosList.Remove("Any");
+                    <div>Position</div>
+                    <select class="form-select-md" asp-for="Course.positionName" asp-items="new SelectList(newPosList, newPosList.ElementAt(0))"></select>
+                }
             </div>
             <div class="form-group">
-                <label asp-for="Course.qualificationName" class="control-label"></label>
-                <input asp-for="Course.qualificationName" class="form-control" />
-                <span asp-validation-for="Course.qualificationName" class="text-danger"></span>
+                @{
+                    List<string> newQualList = new List<string>(Models.Menu.qualifications);
+                    newQualList.Remove("Any");
+                    <div>Qualification</div>
+                    <select class="form-select-md" asp-for="Course.qualificationName" asp-items="new SelectList(newQualList, newQualList.ElementAt(0))"></select>
+                }
+            </div>
+            <div class="form-group">
+                @{
+                    List<string> newSemList = new List<string>(Models.Menu.semesters);
+                    newSemList.Remove("Any");
+                    <div>Semester</div>
+                    <select class="form-select-md" asp-for="Course.semester" asp-items="new SelectList(newSemList, newSemList.ElementAt(0))"></select>
+                }
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

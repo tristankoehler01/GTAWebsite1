@@ -17,5 +17,8 @@ namespace GTAWebsite.Models
 
         [Display(Name = "Qualification"), Required]
         public string qualificationName { get; set; }
+
+        [Display(Name = "Semester"), Required]
+        public string semester { get; set; }
     }
 }
