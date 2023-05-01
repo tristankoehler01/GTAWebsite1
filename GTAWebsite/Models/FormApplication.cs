@@ -17,9 +17,11 @@ namespace GTAWebsite.Models
         public string LastName { get; set; } = "";
 
         [BindProperty]
+        [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
         public string Email { get; set; } = "";
 
         [BindProperty]
+        [Phone(ErrorMessage = "Please enter a valid phone number.")]
         public string Phone { get; set; } = "";
 
         [BindProperty]
@@ -31,6 +33,11 @@ namespace GTAWebsite.Models
         [Required]
         [Display(Name = "Grade")]
         public string Grade { get; set; } = "";
+
+        [BindProperty]
+        [Required]
+        [Display(Name = "Semester Interested in Working")]
+        public string SemesterInterested { get; set; } = "";
 
         [BindProperty]
         [Display(Name = "GTA Certified?")]

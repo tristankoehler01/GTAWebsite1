@@ -10,19 +10,32 @@
         background-color:#0173bc;
         float:left;
         color: white;
-        margin:10px;
-        padding:5px;
+        margin:5px;
+        padding:10px;
         align-items:center;
         justify-content:center;
         text-align:center;
-        width:200px;
-        height:200px;
+        width:100px;
+        height:100px;
         flex-direction:column
     }
 
     .area {
-        display:inline-flex;
-        margin:auto
+        display: inline-flex;
+        margin: auto
+    }
+
+    .area#area2 {
+       display: grid;
+       grid-template-columns: repeat(6, 1fr);
+       overflow-y: scroll;
+       height: 400px; /* set the height to enable scroll */
+    }
+
+
+    select {
+        width: 200px;
+        height: 40px;
     }
 </style>
 
@@ -50,7 +63,7 @@
         <button type="button" class="btn btn-primary" onclick="displayGroups()">Apply</button>
     }
 </div>
-<div class="area" id="area2" style="float:right; flex-wrap:wrap; overflow:auto"></div>
+<div class="area" id="area2" style="float:right; flex-wrap:wrap; overflow-y:scroll"></div>
 
 <script>
     document.getElementById("area2").onload = displayGroups();
@@ -95,7 +108,6 @@
             }
         }
 
-        console.log(text);
         document.getElementById("area2").innerHTML = text;
         
     }

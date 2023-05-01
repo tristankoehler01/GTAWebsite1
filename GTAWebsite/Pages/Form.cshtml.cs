@@ -53,10 +53,11 @@ namespace GTAWebsite.Pages
                     string constr = this._configuration.GetConnectionString("GTAWebsiteContext");
                     using (SqlConnection con = new SqlConnection(constr))
                     {
-                        string query = "INSERT INTO Files VALUES (@Name, @ContentType, @Data)";
+                        string query = "INSERT INTO Files VALUES (@FormID, @Name, @ContentType, @Data)";
                         using (SqlCommand cmd = new SqlCommand(query))
                         {
                             cmd.Connection = con;
+                            cmd.Parameters.AddWithValue("@FormID", form.Id);
                             cmd.Parameters.AddWithValue("@Name", fileName);
                             cmd.Parameters.AddWithValue("@ContentType", contentType);
                             cmd.Parameters.AddWithValue("@Data", ms.ToArray());
@@ -75,6 +76,9 @@ namespace GTAWebsite.Pages
 
             _context.Forms.Add(form);
             _context.SaveChanges();
+
+            form = new FormApplication();
+            TempData["Message"] = "Application submitted successfully.";
 
             return RedirectToPage("Index");
         }

@@ -1,6 +1,10 @@
 @page
 @model Pages.FormModel
-@{
+@if (!string.IsNullOrEmpty(TempData["Message"] as string))
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
 }
 
 <div class="row">
@@ -27,7 +31,7 @@
             <div class="row mb-3">
                 <label class="col-sm-2 col-form-label">Email *</label>
                 <div class="col-sm-5">
-                    <input class="form-control" asp-for="form.Email">
+                    <input class="form-control" asp-for="form.Email" placeholder="myname@example.com" />
                     <span asp-validation-for="form.Email" class="text-danger"></span>
 
                 </div>
@@ -36,7 +40,7 @@
             <div class="row mb-3">
                 <label class="col-sm-2 col-form-label">Phone *</label>
                 <div class="col-sm-5">
-                    <input class="form-control" asp-for="form.Phone">
+                    <input class="form-control" asp-for="form.Phone" placeholder="(000)-000-0000" />
                     <span asp-validation-for="form.Phone" class="text-danger"></span>
 
                 </div>
@@ -60,6 +64,18 @@
 
                 </div>
 
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label"> Term </label>
+                <div class="col-sm-5">
+                    <select class="form-control" asp-for="form.SemesterInterested">
+                        <option value="">-- Select Semester --</option>
+                        <option value="Fall">Fall</option>
+                        <option value="Summer">Summer</option>
+                        <option value="Spring">Spring</option>
+                    </select>
+                </div>
             </div>
 
             <div class="row mb-3">
