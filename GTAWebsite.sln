@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GTAWebsite", "GTAWebsite\GTAWebsite.csproj", "{F7FE13F5-D9CC-414B-89FE-CA2931E56095}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{0E408E03-A985-4730-8F38-EF64A57DA86D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F7FE13F5-D9CC-414B-89FE-CA2931E56095}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7FE13F5-D9CC-414B-89FE-CA2931E56095}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7FE13F5-D9CC-414B-89FE-CA2931E56095}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E408E03-A985-4730-8F38-EF64A57DA86D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E408E03-A985-4730-8F38-EF64A57DA86D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E408E03-A985-4730-8F38-EF64A57DA86D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E408E03-A985-4730-8F38-EF64A57DA86D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
