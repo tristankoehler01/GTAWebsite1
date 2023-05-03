@@ -57,7 +57,7 @@ namespace GTAWebsite.Pages.Applications
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./ApplicationIndex");
         }
     }
 }

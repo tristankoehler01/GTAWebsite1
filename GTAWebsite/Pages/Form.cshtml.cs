@@ -57,7 +57,7 @@ namespace GTAWebsite.Pages
                         using (SqlCommand cmd = new SqlCommand(query))
                         {
                             cmd.Connection = con;
-                            cmd.Parameters.AddWithValue("@FormID", form.Id);
+                            cmd.Parameters.AddWithValue("@FormID", _context.Forms.Count() + 1);
                             cmd.Parameters.AddWithValue("@Name", fileName);
                             cmd.Parameters.AddWithValue("@ContentType", contentType);
                             cmd.Parameters.AddWithValue("@Data", ms.ToArray());
@@ -80,7 +80,7 @@ namespace GTAWebsite.Pages
             form = new FormApplication();
             TempData["Message"] = "Application submitted successfully.";
 
-            return RedirectToPage("Index");
+            return RedirectToPage("Form");
         }
 
 

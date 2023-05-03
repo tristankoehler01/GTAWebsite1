@@ -35,16 +35,8 @@
             <th>
                 @Html.DisplayNameFor(model => model.FormApplication[0].GtaCertified)
             </th>
-            <th>@foreach(var file in Model.Files)
-                {
-                    @foreach (var app in Model.FormApplication)
-                    {
-                        if (file.FormID == app.Id)
-                        {
-                            <a asp-page-handler="Download" asp-route-fileId="@file.Id">Download</a>
-                        }
-                    }
-                }
+            <th>
+                Files
             </th>
         </tr>
     </thead>
@@ -71,6 +63,15 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.GtaCertified)
+            </td>
+            <td>
+                @foreach(var file in Model.Files)
+                {
+                    if (file.FormID == item.Id)
+                    {
+                     <a asp-page-handler="Download" asp-route-fileId="@file.Id">Download</a>
+                    }
+                }
             </td>
             <td>
                 <a asp-page="./ApplicationDelete" asp-route-id="@item.Id">Delete</a>
