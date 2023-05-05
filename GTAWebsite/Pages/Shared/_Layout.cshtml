@@ -22,17 +22,21 @@
                         <li class="nav-item">
                             <a style="color:white" class="nav-link" asp-area="" asp-page="/Index">Open Courses</a>
                         </li>
-                        <li class="nav-item">
-                            @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
-                            {
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                        {
                             <li class="nav-item">
                                 <a style="color:white" class="nav-link" asp-area="" asp-page="/AddCourse/Index">Add Courses</a>
                             </li>
                             <li class="nav-item">
                                 <a style="color:white" class="nav-link" asp-area="" asp-page="/Applications/ApplicationIndex">View Applications</a>
                             </li>
-                            }
-                        </li>
+                        }
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Student"))
+                        {
+                            <li class="nav-item">
+                                <a style="color:white" class="nav-link" asp-area="" asp-page="/Form">Apply to Jobs</a>
+                            </li>
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
